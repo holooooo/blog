@@ -1,0 +1,51 @@
+name: master
+
+on:
+  push:
+      branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    # node 编译
+    - name: build
+      uses: actions/setup-node@v1
+    - run: |
+        npm i -g hexo-cli
+        npm i
+        hexo clean
+        hexo g
+
+    # docker build，并push
+    - name: Docker push
+      uses: azure/docker-login@v1
+      with:
+        login-server: reg.qiniu.com
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+    - run: |
+        docker build -t reg.qiniu.com/holo-blog/blog:${{ github.sha }} -t reg.qiniu.com/holo-blog/blog .
+        docker push reg.qiniu.com/holo-blog/blog:${{ github.sha }}
+        docker push reg.qiniu.com/holo-blog/blog
+
+    # 让K8s应用deployment
+    - name: deploy to cluster
+      uses: steebchen/kubectl@master
+      env:
+        KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+        KUBECTL_VERSION: "1.15"
+      with:
+        args: apply -f deployment.yaml
+    - name: verify deployment
+      uses: steebchen/kubectl@master
+      env:
+        KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+        KUBECTL_VERSION: "1.15"
+      with:
+        args: '"rollout status -n blog deployment/blog"'
