@@ -71,8 +71,8 @@ spec:
         app: blog
     spec:
       containers:
-      - image: reg.qiniu.com/holo-blog/blog
-        imagePullPolicy: Always
+      - image: reg.qiniu.com/holo-blog/blog:{TAG}
+        imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3
           httpGet:
