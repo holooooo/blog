@@ -35,6 +35,8 @@ jobs:
         docker push reg.qiniu.com/holo-blog/blog
 
     # 让K8s应用deployment
+    - run: |
+        sed -i 's/{TAG}/${{ github.sha }}/g' deployment.yaml
     - name: deploy to cluster
       uses: steebchen/kubectl@master
       env:
