@@ -13,25 +13,25 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    # # node 编译
-    # - name: build
-    #   uses: actions/setup-node@v1
-    # - run: |
-    #     npm i -g hexo-cli
-    #     npm i
-    #     hexo clean
-    #     hexo g
+    # node 编译
+    - name: build
+      uses: actions/setup-node@v1
+    - run: |
+        npm i -g hexo-cli
+        npm i
+        hexo clean
+        hexo g
 
-    # # docker build，并push
-    # - name: Docker push
-    #   uses: azure/docker-login@v1
-    #   with:
-    #     login-server: reg.qiniu.com
-    #     username: ${{ secrets.REGISTRY_USERNAME }}
-    #     password: ${{ secrets.REGISTRY_PASSWORD }}
-    # - run: |
-    #     docker build -t reg.qiniu.com/holo-blog/blog:dev .
-    #     docker push reg.qiniu.com/holo-blog/blog:dev
+    # docker build，并push
+    - name: Docker push
+      uses: azure/docker-login@v1
+      with:
+        login-server: reg.qiniu.com
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+    - run: |
+        docker build -t reg.qiniu.com/holo-blog/blog:dev .
+        docker push reg.qiniu.com/holo-blog/blog:dev
 
     # 让K8s应用deployment
     # - name: deploy to cluster
@@ -49,5 +49,5 @@ jobs:
     #   with:
     #     args: '"rollout status -n blog deployment/blog"'
     - run: |
-        sed -i 's/{TAG}/${{ github.sha }}/g' deployment.yaml
+        sed -i 's/{TAG}/dev/g' deployment.yaml
         cat deployment.yaml

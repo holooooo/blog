@@ -1,5 +1,6 @@
 ---
 title: 为自己的Gitlab账号设置动态头像
+date: 2019-09-12
 categories:
 - 技巧
 tags:
@@ -12,7 +13,7 @@ tags:
 
 以下过程我是在内网gitlab中实现的，在公网上那个gitlab上能不能好使我就不知道了。
 
-# 原理
+## 原理
 
 感谢开源精神，我们可以在gitlab上看到关于gitlab的全部代码。[这里](https://gitlab.com/gitlab-org/gitlab/blob/master/app/assets/javascripts/profile/profile.js)是有关修改个人信息的前端代码。
 
@@ -22,7 +23,7 @@ tags:
 
 那么要做的就很简单了，我们只需要将我们想要用作头像的图片转换成一个blob，赋值给页面后，再触发一次正常的更新资料就好了
 
-# 步骤
+## 步骤
 
 1. 登录， 并打开你的编辑个人资料页面。
 2. 按一下`F12`，打开开发者工具，并点击开发者工具顶部的Network按钮。这时候会开始监听页面请求。
