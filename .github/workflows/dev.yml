@@ -19,6 +19,7 @@ jobs:
     - run: |
         npm i -g hexo-cli
         npm i
+        textlint --fix .\source\_posts\*.md
         hexo clean
         hexo g
 

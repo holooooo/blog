@@ -17,9 +17,10 @@ jobs:
     - name: build
       uses: actions/setup-node@v1
     - run: |
-        npm i -g hexo-cli
+        npm i -g hexo-cli 
         npm i
         hexo clean
+        textlint --fix .\source\_posts\*.md
         hexo g
 
     # docker build，并push
