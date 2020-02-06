@@ -21,8 +21,6 @@
     "hexo-renderer-ejs": "^1.0.0",
     "hexo-renderer-marked": "^2.0.0",
     "hexo-renderer-stylus": "^1.1.0",
-    "hexo-server": "^1.0.0",
-    "textlint": "^11.6.2",
-    "textlint-rule-ja-space-between-half-and-full-width": "^2.0.1"
+    "hexo-server": "^1.0.0"
   }
 }

@@ -17,7 +17,7 @@ jobs:
     - name: build
       uses: actions/setup-node@v1
     - run: |
-        npm i -g hexo-cli 
+        npm i -g hexo-cli textlint textlint-rule-ja-space-between-half-and-full-width
         npm i -f
         hexo clean
         textlint --fix .\source\_posts\*.md
