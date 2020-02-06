@@ -18,7 +18,7 @@ jobs:
       uses: actions/setup-node@v1
     - run: |
         npm i -g hexo-cli 
-        npm i
+        npm i -f
         hexo clean
         textlint --fix .\source\_posts\*.md
         hexo g
