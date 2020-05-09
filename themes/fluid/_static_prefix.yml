@@ -33,34 +33,40 @@ internal_img: /img
 # Third-party library
 #---------------------------
 
-anchor: /lib/anchor
+# 图标库，包含了大量社交类图标，主题依赖的不包含在内，因此可自行修改，详见 https://hexo.fluid-dev.com/docs/icon/
+# Icon library, which includes many social icons, does not include those theme dependent, so your can modify link by yourself. Detail: https://hexo.fluid-dev.com/docs/en/icon/
+iconfont: //at.alicdn.com/t/font_1736178_pjno9b9zyxs.css
 
-font_awesome: /lib/font-awesome
+anchor: https://cdn.staticfile.org/anchor-js/4.2.2/
 
-github_markdown: /lib/github-markdown
+github_markdown: https://cdn.staticfile.org/github-markdown-css/4.0.0/
 
-jquery: /lib/jquery
+jquery: https://cdn.staticfile.org/jquery/3.4.1/
 
-bootstrap: /lib/bootstrap
+bootstrap: https://cdn.staticfile.org/twitter-bootstrap/4.4.1/
 
-mdbootstrap: /lib/mdbootstrap
+highlightjs: https://cdn.staticfile.org/highlight.js/10.0.0/
 
-# umd
-popper: /lib/popper
+tocbot: https://cdn.staticfile.org/tocbot/4.11.1/
 
-prettify: /lib/prettify
-# 高亮主题的路径，只支持 min.css，文件名需要与 _config.highlight.theme 对应
-# the path of highlight theme, only support `min.css` file，filename need to be the same as _config.highlight.theme
-prettify_theme: /lib/prettify
+typed: https://cdn.staticfile.org/typed.js/2.0.11/
 
-tocbot: /lib/tocbot
+fancybox: https://cdn.staticfile.org/fancybox/3.5.7/
 
-typed: /lib/typed
+mathjax: https://cdn.staticfile.org/mathjax/3.0.5/es5/
 
-fancybox: /lib/fancybox
+katex: https://cdn.staticfile.org/KaTeX/0.11.1/
 
-smooth_scroll: /lib/smooth-scroll
+aplayer: https://cdn.staticfile.org/aplayer/1.10.1/
 
-mathjax: https://cdn.staticfile.org/mathjax/2.7.6/
+busuanzi: https://busuanzi.ibruce.info/busuanzi/2.3/
 
-katex: /lib/katex
+clipboard: https://cdn.staticfile.org/clipboard.js/2.0.6/
+
+mermaid: https://cdn.staticfile.org/mermaid/8.5.0/
+
+valine: https://cdn.staticfile.org/valine/1.4.14/
+
+gitalk: https://cdn.staticfile.org/gitalk/1.6.2/
+
+blueimp-md5: https://cdn.staticfile.org/blueimp-md5/2.13.0/
