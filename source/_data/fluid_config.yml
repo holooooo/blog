@@ -227,7 +227,7 @@ post: # 部分配置同时控制自定义页面，注意备注
     content: '<img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">' # 自定义区域，支持 HTML，可自行插入赞赏码、公众号二维码等内容
   comments: # 评论
     enable: true # 开启评论
-    type: gitalk # 指定使用的评论模块  available: disqus | valine | gitalk | utterances | changyan | livere
+    type: changyan # 指定使用的评论模块  available: disqus | valine | gitalk | utterances | changyan | livere
   image_zoom: # 文章图片可点击放大
     enable: true # 开启后文章默认可用，自定义页面如需使用，需在 Front-matter 中指定 `image_zoom: true`，并且图片使用该格式插入：<img src="..." zoom />
   math: # 数学公式，开启之前需要更换 Markdown 渲染器，否则复杂公式会有兼容问题，具体请见 https://fluid-dev.github.io/hexo-fluid-docs/guide/#数学公式
@@ -296,8 +296,8 @@ valine:
 # 畅言
 # http://changyan.kuaizhan.com/
 changyan:
-  appid: ""
-  appkey: ""
+  appid: "cyuPTMDRL"
+  appkey: "prod_266e92fc546d6369870ed4df4dbb9728"
 
 # Livere 来必力
 # You can get your uid from https://www.livere.com/my_Livere
@@ -350,7 +350,7 @@ about: # 以下仅为页面顶部的基本信息，更多内容请在 ./pages/ab
   banner_img_height: 80 # available: 0 - 100
   avatar: /img/avatar.png # 头像
   name: 木口
-  introduce: info / info / info # 支持 HTML
+  introduce: 没啥好说的 # 支持 HTML
   icons: # 更多图标可从 https://fontawesome.com/v4.7.0/icons/ 查找，并以 "图标名: url" 的格式添加在下方
     - {
         class: "iconfont icon-github-fill",
