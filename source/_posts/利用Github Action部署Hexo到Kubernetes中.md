@@ -1,6 +1,7 @@
 ---
 title: 利用Github Actions部署Hexo到Kubernetes中
 date: 2020-01-23
+updated: 2020-01-23
 categories:
 - 操作记录
 tags:
