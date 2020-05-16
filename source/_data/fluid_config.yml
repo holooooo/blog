@@ -10,9 +10,9 @@
 #---------------------------
 # 全局
 # Site
-favicon: /img/favicon.png # 网站标签页的 icon
+favicon: /img/wolf.png # 网站标签页的 icon
 
-apple_touch_icon: /img/apple-touch-icon.png # 用于苹果设备的 icon
+apple_touch_icon: /img/wolf.png # 用于苹果设备的 icon
 
 title_join_string: " - " # 浏览器标签页中的标题分隔符，效果： 文章名 - 站点名
 
@@ -35,7 +35,7 @@ fun_features: # 一些好玩的功能
     element: h1,h2,h3,h4,h5,h6
     placement: right # icon放置的位置： left | right
     visible: hover # 默认悬浮显示，可选：hover（鼠标在元素上悬浮时显示） | always（一直显示） | touch（移动端触摸显示）
-    icon: "" # 例如：§ | # | ❡ 等，留空则为默认效果
+    icon: "§" # 例如：§ | # | ❡ 等，留空则为默认效果
   mouse_click: # 鼠标点击动效
     enable: false
     style: values # 目前设置两个值：values（价值观词汇） | love（爱心）
@@ -205,7 +205,7 @@ post: # 部分配置同时控制自定义页面，注意备注
     min2read: # 阅读时间
       enable: true
       format: "{} 分钟"
-      words: 70 # 每分钟阅读多少字，如果是技术文章，建议降低
+      words: 100 # 每分钟阅读多少字，如果是技术文章，建议降低
     views: # 阅读次数，统计基于不蒜子
       enable: true
       format: "{} 次"

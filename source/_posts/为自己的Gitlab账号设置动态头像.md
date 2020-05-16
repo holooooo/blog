@@ -1,6 +1,7 @@
 ---
 title: 为自己的Gitlab账号设置动态头像
 date: 2019-09-12
+updated: 2019-09-12
 categories:
 - 技巧
 tags:
