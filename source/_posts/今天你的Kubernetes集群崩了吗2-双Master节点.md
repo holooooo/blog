@@ -3,7 +3,7 @@ title: 今天你的Kubernetes集群崩了吗2-双Master节点
 date: 2020-05-17
 updated: 2020-05-17
 categories:
-  - 科普
+  - Record
 tags:
   - Kubernetes
   - Crash

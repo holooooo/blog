@@ -3,7 +3,7 @@ title: 今天你的Kubernetes集群崩了吗3-cgroups溢出
 date: 2020-05-25
 updated: 2020-05-25
 categories:
-  - 科普
+  - Record
 tags:
   - Kubernetes
   - Crash
@@ -26,7 +26,7 @@ mkdir /sys/fs/cgroups/memory/docker/406cfca0c0a597091854c256a3bb2f09261ecbf86e98
 
 通常当我们想要介绍 Docker 的时候，我们会怎么说？无论是怎么描述 Docker，我们总是会提到 Docker 的一个最重要的特性之一：轻量级。Docker 之所以是轻量级的虚拟化技术，是因为 Docker 并非是建立于 hypervisor 之上的虚拟机应用。通过下图我们可以看到 Docker 和基于 hypervisor 的虚拟机技术之间的区别：
 
-[Docker 工作原理](!/images/docker工作原理.png)
+![Docker 工作原理](/images/docker工作原理.png)
 
 在上图中我们可以看到，Docker 容器在运行时并不会带入一个新的操作系统，可以这么说 Docker 容器就是一个带有特殊设置的普通进程。但既然容器只是一个普通进程，那么为什么容器并不能直接访问到宿主机上的资源呢？而且通过设置，容器也不能无限制的使用宿主机的资源。为了实现容器计算资源和进程工作区的隔离， Docker 中 Namespace 和 cgroups 这两项技术。
 
@@ -54,20 +54,20 @@ memcg 是 linux 当中用来管理 cgroup 内存的模块。在 memcg 中，其 
 
 ## 处理方法
 
-在遇到这种问题的时候，我们有很多的解决方式，最好的办法当然还是升级内核版本，一劳永逸的避免该类问题的复现。但是很多情况下我们并不能随意的去升级运行中的节点的内核，除了升级内核外还有另外两种方法。
+在遇到这种问题的时候，我们有很多的解决方式，最好的办法当然还是升级内核版本，一劳永逸的避免该类问题的复现。但是很多情况下我们并不能随意的去升级运行中的节点的内核，除了升级内核外还有另外几种方法。
 
 粗暴的重启节点，也可以刷新其计数，使该问题暂时消失。但是时间稍微一长就可能还是会出现一样的情况。并且重启节点可能会导致 Pod 漂移等意外结果，这种方式也并不推荐。
 
 第三种方式则是设置一个定时任务`6 */12 * * * root echo 3 > /proc/sys/vm/drop_caches`，定期将释放计数。但是这种方式会影响性能并可能导致一些状态为`dangling`的容器 cgroups 被释放。这也不是一个好的办法。
 
-最后我们可以将内核参数设置为`cgroup.memory = nokmem`
+最后我们可以将内核参数设置为`cgroup.memory=nokmem`来避免memcg进行计数。也可以重新编译kuberntes相关组件来禁止使用相关特性。
 
-如果条件允许的话，我认为升级内核还是最好的选择，或者升级 rhel 到两个月前发布的 7.8（危）。
+如果条件允许的话，我认为升级内核还是最好的选择，或者升级 rhel 到两个月前发布的 7.8（危）。不过具体要使用什么方式来应对问题，需要依据实际情况来决定。各个方式都有其适用的场景
 
 ## 捞一下往期
 
-- [今天你的 Kubernetes 集群崩了吗 1-Pod 无限创建](/_posts/今天你的Kubernetes集群崩了吗1-Pod无限创建)
-- [今天你的 Kubernetes 集群崩了吗 2-双 Master 节点](/_posts/今天你的Kubernetes集群崩了吗2-双Master节点)
+- [今天你的 Kubernetes 集群崩了吗 1-Pod 无限创建](/Record/今天你的Kubernetes集群崩了吗1-Pod无限创建)
+- [今天你的 Kubernetes 集群崩了吗 2-双 Master 节点](/Record/今天你的Kubernetes集群崩了吗2-双Master节点)
 
 ## 参考资料
 

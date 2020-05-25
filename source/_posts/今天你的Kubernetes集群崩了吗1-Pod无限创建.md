@@ -3,7 +3,7 @@ title: 今天你的Kubernetes集群崩了吗：Pod无限调度
 date: 2020-05-14
 updated: 2020-05-14
 categories:
-  - 科普
+  - Record
 tags:
   - Kubernetes
   - Crash
